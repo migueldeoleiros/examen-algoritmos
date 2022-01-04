@@ -1,0 +1,2 @@
+El informe es el casi el mismo que el de shell cambiando la tabla por los nuevos tiempos, la O() de este algortimo en teoria es de O(n^(2/3)), luego que cada uno ajuste a sus tiempos pero por ahi debe andar.
+Se supone que este algoritmo es mas rapido que el de shell cuanto mas va aumentando el tamaño del vector.
