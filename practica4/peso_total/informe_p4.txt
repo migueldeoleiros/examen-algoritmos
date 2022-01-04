@@ -1,0 +1,87 @@
+TITLE: Algoritmos Práctica 4
+AUTHOR:                           LOGIN:         
+DATE: 
+
+La práctica fue realizada con este dispositivo -->
+Máquina: 
+OS:       
+Kernel:   
+         
+
+La realización de esta práctica consiste en la implementación del algoritmo
+  de prim para hallar el peso del árbol de recubrimiento mínimo dada una matriz
+  de adyacencia.
+
+Primero realizamos tres tests con matrices de adyacencia predefinidas para
+  comprobar su correcto funcionamiento:
+
+ --MATRIX--
+ 0 1 8 4 7
+ 1 0 2 6 5
+ 8 2 0 9 5
+ 4 6 9 0 3
+ 7 5 5 3 0
+
+ --RESULTADO--
+Peso: 10
+
+ --MATRIX--
+ 0 1 4 7 
+ 1 0 2 8 
+ 4 2 0 3 
+ 7 8 3 0 
+        
+ --RESULTADO--
+Peso: 6
+
+ --MATRIX--
+  0  7 99  5 99 99 99 
+  7  0  8  9  7 99 99 
+ 99  8  0 99  5 99 99 
+  5  9 99  0 15  6 99 
+ 99  7  5 15  0  8  9 
+ 99 99 99  6  8  0 11 
+ 99 99 99 99  9 11  0 
+
+ --RESULTADO--
+Peso: 39
+
+
+Atendiendo al enunciado de la practica 4, nuestro trabajo consiste en calcular
+  empiricamente la complejidad computacional del algoritmo generando aleatoriamente
+  grafos completos no dirigidos.
+
+A través de esta tabla, podemos determinar la complejidad computacional del
+  algoritmo, así como la verificación empírica de su complejidad mediante las
+  cotas sobre y subestimada.
+
+-NOTAS-
+  - El (*) situado a la izquierda de determinados valores significa que su tiempo de
+      ejecución es inferior a 500μs, por lo tanto ejecutamos un bucle el cual lo
+      repite 1000 veces y hallamos la media resultante.
+  - Todas las mediciones de tiempos están expresadas en microsegundos.
+
+      V            t(V)           t(V)/V^1.50        t(V)/V^1.80        t(V)/V^2.00
+(*)    10       
+(*)    20       
+(*)    40       
+(*)    80       
+(*)   160       
+      320       
+
+Cota subestimada=n^1.5
+Cota sobrestimada=n^2
+Cota ajustada=n^1.8
+
+--OBSERVACIONES--
+  - El cociente entre nuestros tiempos y la cota subestimada es
+      estrictamente creciente
+  - El cociente entre nuestros tiempos y la cota sobrestimada es
+      estrictamente decreciente
+  - El cociente entre nuestros tiempos y la cota ajustada se sitúa próximo a
+      un valor estable de xxxxxx 
+   
+--CONCLUSIONES--
+  Podemos afirmar que el algoritmo de prim tiene una complejidad computacional
+    de n^1.8 con grafos completos no dirigidos aleatorios, la cual es
+    ligeramente inferior a la teorica (n^2), que usamos como cota sobrestimada.
