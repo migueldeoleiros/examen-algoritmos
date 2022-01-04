@@ -6,7 +6,7 @@ Las cuatro prácticas originales (explicadas abajo) están en sus respectias car
 En cada una de las carpetas están las posibles variaciones de dichas prácticas, con su propio código e informe.
 
 *** Práctica 1
-Consiste en comparar el funcionamiento de dos algoritmos que calculan la suma de la subsecuencia máxima de un vector dado. 
+Consiste en comparar el funcionamiento de dos algoritmos que calculan la suma de la subsecuencia máxima de un vector dado. \\
 *posibles ejercicios de examen:*
 - un nuevo algoritmo de ssm
 
@@ -18,14 +18,14 @@ Consiste en comparar el funcionamiento de dos algoritmos de ordelanción (*Selec
 
 *** Práctica 3
 Consiste en comparar el funcionamiento de otros dos algoritmos de ordelanción (*Inserción* y *QuickSort*). 
-En este caso QuickSort será implementado con selección de pivote por mediana de tres y debemos comparar su funcionamiento con tres umbrales diferentes 1,10 y 100.
+En este caso QuickSort será implementado con selección de pivote por mediana de tres y debemos comparar su funcionamiento con tres umbrales diferentes 1,10 y 100.\\
 *posibles ejercicios de examen:*
 - modificación de quicksort (modificar la manera de seleccionar el pivote)
 - un nuevo algoritmo de ordenación 
 
 *** Práctica 4
 Consiste en implementar el algoritmo de búsqueda del árbol de recubrimiento mínimo. 
-El árbol a procesar será dado por una mariz de adyacencia y el resultado lo debuelve una cola circular en base a vectores.
+El árbol a procesar será dado por una mariz de adyacencia y el resultado lo debuelve una cola circular en base a vectores.\\
 *posibles ejercicios de examen:*
 - en lugar de una cola otra cosa
 - devolver el peso total en lugar de las aristas
