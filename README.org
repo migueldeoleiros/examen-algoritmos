@@ -1,0 +1,32 @@
+* Algoritmos
+Este repositorio contiene ejemplos de las posibles variaciones de las prácticas de la asigatura de Algoritmos de la Universidad De A Coruña en el grado de ingeniería informática de 2021/2022. Con el objetivo de hacer todos los posibles exámenes.
+
+** Contenido de cada práctica
+Las cuatro prácticas originales (explicadas abajo) están en sus respectias carpetas con el nombre *p*_original*.
+En cada una de las carpetas están las posibles variaciones de dichas prácticas, con su propio código e informe.
+
+*** Práctica 1
+Consiste en comparar el funcionamiento de dos algoritmos que calculan la suma de la subsecuencia máxima de un vector dado. 
+*posibles ejercicios de examen:*
+- un nuevo algoritmo de ssm
+
+*** Práctica 2
+Consiste en comparar el funcionamiento de dos algoritmos de ordelanción (*Selección* y *Shell*). 
+*posibles ejercicios de examen:*
+- modificar los incrementos de la ordenación por shell (hibbard o sedgewick)
+- un nuevo algoritmo de ordenación (por monticulos o fusión por ejemplo)
+
+*** Práctica 3
+Consiste en comparar el funcionamiento de otros dos algoritmos de ordelanción (*Inserción* y *QuickSort*). 
+En este caso QuickSort será implementado con selección de pivote por mediana de tres y debemos comparar su funcionamiento con tres umbrales diferentes 1,10 y 100.
+*posibles ejercicios de examen:*
+- modificación de quicksort (modificar la manera de seleccionar el pivote)
+- un nuevo algoritmo de ordenación 
+
+*** Práctica 4
+Consiste en implementar el algoritmo de búsqueda del árbol de recubrimiento mínimo. 
+El árbol a procesar será dado por una mariz de adyacencia y el resultado lo debuelve una cola circular en base a vectores.
+*posibles ejercicios de examen:*
+- en lugar de una cola otra cosa
+- devolver el peso total en lugar de las aristas
+- cambiar la representación del grafo (listas de adyacencia en lugar de matrices)

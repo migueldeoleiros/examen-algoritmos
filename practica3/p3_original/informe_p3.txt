@@ -1,0 +1,410 @@
+TITLE: Algoritmos Práctica 3
+AUTHOR 1: Miguel López López        LOGIN 1: m.llopez
+AUTHOR 2: Xoel Díaz Pŕestamo        LOGIN 2: xoel.diaz
+AUTHOR 3: Ángel Gómez prol          LOGIN 3: angel.gomez.prol
+GROUP: 2.1.4
+DATE: 20/11/2021
+
+La práctica fue realizada con este dispositivo -->
+Máquina: Intel i5-7200U (4) @ 3.100GHz (8GB RAM)
+OS:      Arch linux x86_64 
+Kernel:  5.15.2-arch1-1 
+         
+
+La realización de esta practica consiste en la implementación de los algoritmos
+  de ordenación por inserción y quicksort.
+
+En estos primeros tests, se ejecuta el algoritmo de ordenación por inserción
+  para comprobar su funcionamiento,realizando 3 tests con vectores aleatorios,
+  uno con un vector ordenado decrecientemente y otro ordenado ascendentemente.
+
+         ORDENACIÓN POR INSERCIÓN
+Input: [  4  4 10 -9 -6 -5 -2  7 -5 -8 ]
+Output:[ -9 -8 -6 -5 -5 -2  4  4  7 10 ]
+
+Input: [  1 -7  9  3  7 -6 -7  6  3 -4 ]
+Output:[ -7 -7 -6 -4  1  3  3  6  7  9 ]
+
+Input: [ -5  2  6 -2  1 -6  3  6  8  9 ]
+Output:[ -6 -5 -2  1  2  3  6  6  8  9 ]
+
+Input: [  9  1  2  8  3  4 -8  9 -1 -4 ]
+Output:[ -8 -4 -1  1  2  3  4  8  9  9 ]
+
+Input: [ 10  9  8  7  6  5  4  3  2  1 ]
+Output:[  1  2  3  4  5  6  7  8  9 10 ]
+
+Input: [  0  1  2  3  4  5  6  7  8  9 ]
+Output:[  0  1  2  3  4  5  6  7  8  9 ]
+
+
+ Continuando con quicksort,de nuevo ejecutamos en tres
+    vectores aleatorios,uno ascendente y otro descendente.
+
+              QUICKSORT
+Input: [-10 10 -3  7  0 -7 -9  4  7  2 ]
+Output:[-10 -9 -7 -3  0  2  4  7  7 10 ]
+
+Input: [  8 -8 -6  2  0  3  6 -8 -2  1 ]
+Output:[ -8 -8 -6 -2  0  1  2  3  6  8 ]
+
+Input: [ 10 -5 -9 -1-10  2 -7 -9  0  2 ]
+Output:[-10 -9 -9 -7 -5 -1  0  2  2 10 ]
+
+Input: [ -3 -2  1  4 -5 10  5 -4  1  1 ]
+Output:[ -5 -4 -3 -2  1  1  1  4  5 10 ]
+
+Input: [ 10  9  8  7  6  5  4  3  2  1 ]
+Output:[  1  2  3  4  5  6  7  8  9 10 ]
+
+Input: [  0  1  2  3  4  5  6  7  8  9 ]
+Output:[  0  1  2  3  4  5  6  7  8  9 ]
+
+
+Atendiendo al enunciado de la practica 3,nuestro trabajo consiste en realizar
+  la comprobación de la eficiencia y los tiempos de ejecución de los
+  algoritmos implementados mediante vectores de n elementos, empezando en
+  n=500 hasta n=32000,y excepcionalmente hasta n=128000 cuando t(n) es
+  menor que 500.000 microsegundos.
+
+También compararemos el funcionamiento de quicksort con diferentes umbrales,
+  siendo estos 1(no se ejecuta inserción), 10 y 100.
+
+A través de estas tablas, podemos determinar la complejidad computacional de
+  estos algoritmos,así como la verificación empírica de su complejidad
+  mediante las cotas sobre y subestimada.
+
+-NOTAS-
+  - El (*) situado a la izquierda de determinados valores indica que su tiempo
+      de ejecución es inferior a 500 microsegundos, por tanto ejecutamos un
+      bucle el cual lo repite 1000 veces y hallamos la media resultante.
+  - Todas las mediciones de tiempos están expresadas en microsegundos.
+
+
+Ordenación por inserción de vector ascendente:
+
+      n            t(n)           t(n)/n^0.85        t(n)/n^1.00        t(n)/n^1.20
+(*)   500           1.963          0.009972            0.003926          0.001133
+(*)  1000           3.877          0.010927            0.003877          0.000974
+(*)  2000           7.566          0.011830            0.003783          0.000827
+(*)  4000          15.095          0.013094            0.003774          0.000718
+(*)  8000          30.316          0.014590            0.003789          0.000628
+(*) 16000          60.987          0.016283            0.003812          0.000550
+(*) 32000         121.834          0.018046            0.003807          0.000478
+(*) 64000         244.526          0.020094            0.003821          0.000418
+(*)128000         489.669          0.022324            0.003826          0.000364
+
+Cota subestimada=n^0.85
+Cota sobrestimada=n^1.2
+Cota ajustada=n^1.0
+
+--OBSERVACIONES--
+  - El cociente entre nuestros tiempos y la cota subestimada es
+      estrictamente creciente.
+  - El cociente entre nuestros tiempos y la cota sobrestimada es
+      estrictamente decreciente.
+  - El cociente entre nuestros tiempos y la cota ajustada se
+      sitúa próximo a un valor estable de 0.0038..
+
+Ordenación por inserción de vector descendente:
+      n            t(n)           t(n)/n^1.80        t(n)/n^2.00        t(n)/n^2.20
+(*)   500         354.465          0.004914            0.001418          0.000409
+     1000        1412.000          0.005621            0.001412          0.000355
+     2000        5639.000          0.006447            0.001410          0.000308
+     4000       22708.000          0.007455            0.001419          0.000270
+     8000       90375.000          0.008521            0.001412          0.000234
+    16000      362675.000          0.009820            0.001417          0.000204
+    32000     1452051.000          0.011290            0.001418          0.000178
+
+Cota subestimada=n^1.8
+Cota sobrestimada=n^2.2
+Cota ajustada=n^2
+
+--OBSERVACIONES--
+  - El cociente entre nuestros tiempos y la cota subestimada es
+      estrictamente creciente.
+  - El cociente entre nuestros tiempos y la cota sobrestimada es
+      estrictamente decreciente.
+  - El cociente entre nuestros tiempos y la cota ajustada se
+      sitúa próximo a un valor estable de 0.00141..
+
+Ordenación por inserción de vector aleatorio:
+      n            t(n)           t(n)/n^1.80        t(n)/n^1.98        t(n)/n^2.20
+(*)   500         182.284          0.002527            0.000826          0.000210
+     1000         723.000          0.002878            0.000830          0.000182
+     2000        2910.000          0.003327            0.000847          0.000159
+     4000       11336.000          0.003722            0.000836          0.000135
+     8000       45325.000          0.004273            0.000848          0.000117
+    16000      182722.000          0.004947            0.000836          0.000103
+    32000      728824.000          0.005667            0.000876          0.000089
+
+Cota subestimada=n^1.8
+Cota sobrestimada=n^2.2
+Cota ajustada=n^1.98
+
+--OBSERVACIONES--
+  - El cociente entre nuestros tiempos y la cota subestimada es
+      estrictamente creciente.
+  - El cociente entre nuestros tiempos y la cota sobrestimada es
+      estrictamente decreciente.
+  - El cociente entre nuestros tiempos y la cota ajustada se
+      sitúa próximo a un valor estable de 0.00083.. a excepción
+      del vector con 32.000 elementos,donde tenemos una ligera
+      ANOMALÍA.
+
+Ordenacion por quicksort de vector ascendente umbral 1:
+      n            t(n)           t(n)/n^0.80        t(n)/n^1.08        t(n)/n^1.60 
+(*)   500          16.174          0.112109            0.019676          0.000777
+(*)  1000          31.557          0.125631            0.018159          0.000500
+(*)  2000          66.921          0.153017            0.018216          0.000350
+(*)  4000         141.853          0.186290            0.018265          0.000245
+(*)  8000         300.356          0.226550            0.018294          0.000171
+    16000         633.000          0.274225            0.018237          0.000119
+    32000        1336.000          0.332419            0.018207          0.000083
+    64000        2811.000          0.401714            0.018121          0.000057
+   128000        5951.000          0.488452            0.018147          0.000040
+
+Cota subestimada=n^0.8
+Cota sobrestimada=n^1.6
+Cota ajustada=n^1.08
+
+--OBSERVACIONES--
+  - El cociente entre nuestros tiempos y la cota subestimada es
+      estrictamente creciente.
+  - El cociente entre nuestros tiempos y la cota sobrestimada es
+      estrictamente decreciente.
+  - El cociente entre nuestros tiempos y la cota ajustada se
+      sitúa próximo a un valor estable de 0.0018..a excepción
+      del vector con 500 elementos,donde tenemos una ligera
+      ANOMALÍA que solo fuimos capaces de reducir subiendo la 
+      prioridad del proceso en cpu.
+
+Ordenacion por quicksort de vector descendente umbral 1:
+      n            t(n)           t(n)/n^0.80        t(n)/n^1.09        t(n)/n^1.60
+(*)   500          20.147          0.139648            0.022032          0.000968
+(*)  1000          40.924          0.162921            0.021977          0.000649
+(*)  2000          89.678          0.205051            0.022624          0.000469
+(*)  4000         189.677          0.249096            0.022479          0.000327
+(*)  8000         390.021          0.294182            0.021713          0.000222
+    16000         743.000          0.321879            0.022431          0.000139
+    32000        1731.000          0.430702            0.021266          0.000107
+    64000        3393.000          0.484886            0.022582          0.000069
+   128000        8178.000          0.671242            0.022171          0.000055
+
+Cota subestimada=n^0.8
+Cota sobrestimada=n^1.60
+Cota ajustada=n^1.09
+
+--OBSERVACIONES--
+  - El cociente entre nuestros tiempos y la cota subestimada es
+      estrictamente creciente.
+  - El cociente entre nuestros tiempos y la cota sobrestimada es
+      estrictamente decreciente.
+  - El cociente entre nuestros tiempos y la cota ajustada se
+      sitúa próximo a un valor estable de 0.022..
+
+Ordenacion por quicksort de vector aleatorio umbral 1:
+      n            t(n)           t(n)/n^0.80        t(n)/n^1.10        t(n)/n^1.60
+(*)   500          44.068          0.305455            0.047343          0.002117
+(*)  1000          96.244          0.383154            0.048236          0.001525
+(*)  2000         208.572          0.476905            0.048767          0.001090
+(*)  4000         448.770          0.589353            0.048951          0.000774
+     8000         957.000          0.721838            0.048698          0.000544
+    16000        2044.000          0.885492            0.048523          0.000384
+    32000        4354.000          1.083349            0.048220          0.000270
+    64000        9189.000          1.313180            0.048476          0.000188
+   128000       19551.000          1.604726            0.047124          0.000132
+
+Cota subestimada=n^0.8
+Cota sobrestimada=n^1.60
+Cota ajustada=n^1.10
+
+--OBSERVACIONES--
+  - El cociente entre nuestros tiempos y la cota subestimada es
+      estrictamente creciente.
+  - El cociente entre nuestros tiempos y la cota sobrestimada es
+      estrictamente decreciente.
+  - El cociente entre nuestros tiempos y la cota ajustada se
+      sitúa próximo a un valor estable de 0.048..
+
+Ordenacion por quicksort de vector ascendente umbral 10:
+      n            t(n)           t(n)/n^0.80        t(n)/n^1.08        t(n)/n^1.60
+(*)   500          12.214          0.084661            0.013858          0.000587
+(*)  1000          21.777          0.086696            0.013531          0.000345
+(*)  2000          47.973          0.109691            0.013058          0.000251
+(*)  4000         104.253          0.136912            0.013423          0.000180
+(*)  8000         226.117          0.170554            0.013772          0.000129
+(*) 16000         485.475          0.210315            0.013987          0.000091
+    32000        1046.000          0.260263            0.014255          0.000065
+    64000        2221.000          0.317398            0.014318          0.000045
+   128000        4708.000          0.386428            0.013357          0.000032
+
+Cota subestimada=n^0.8
+Cota sobrestimada=n^1.60
+Cota ajustada=n^1.08
+
+--OBSERVACIONES--
+  - El cociente entre nuestros tiempos y la cota subestimada es
+      estrictamente creciente.
+  - El cociente entre nuestros tiempos y la cota sobrestimada es
+      estrictamente decreciente.
+  - El cociente entre nuestros tiempos y la cota ajustada se
+      sitúa próximo a un valor estable de 0.013..
+
+Ordenacion por quicksort de vector descendente umbral 10:
+      n            t(n)           t(n)/n^0.80        t(n)/n^1.09        t(n)/n^1.60
+(*)   500          12.180          0.084425            0.013924          0.000585
+(*)  1000          27.066          0.107752            0.014535          0.000429
+(*)  2000          49.843          0.113967            0.014567          0.000261
+(*)  4000         129.854          0.170533            0.014389          0.000224
+(*)  8000         272.469          0.205516            0.014169          0.000155
+    16000         537.000          0.232637            0.014044          0.000101
+    32000        1088.000          0.270713            0.013966          0.000067
+    64000        2525.000          0.360842            0.014572          0.000052
+   128000        5444.000          0.446838            0.014759          0.000037
+
+Cota subestimada=n^0.8
+Cota sobrestimada=n^1.60
+Cota ajustada=n^1.09
+
+--OBSERVACIONES--
+  - El cociente entre nuestros tiempos y la cota subestimada es
+      estrictamente creciente.
+  - El cociente entre nuestros tiempos y la cota sobrestimada es
+      estrictamente decreciente.
+  - El cociente entre nuestros tiempos y la cota ajustada se
+      sitúa próximo a un valor estable de 0.014..
+
+Ordenacion por quicksort de vector aleatorio umbral 10:
+      n            t(n)           t(n)/n^0.80        t(n)/n^1.10        t(n)/n^1.60
+(*)   500          40.006          0.277300            0.043979          0.001922
+(*)  1000          85.192          0.339155            0.043697          0.001350
+(*)  2000         183.321          0.419168            0.043863          0.000958
+(*)  4000         399.039          0.524043            0.043526          0.000688
+     8000         860.000          0.648674            0.043762          0.000489
+    16000        1845.000          0.799283            0.043799          0.000346
+    32000        3963.000          0.986062            0.043889          0.000245
+    64000        8482.000          1.212144            0.043823          0.000173
+   128000       17893.000          1.468639            0.043127          0.000121
+
+Cota subestimada=n^0.8
+Cota sobrestimada=n^1.60
+Cota ajustada=n^1.10
+
+--OBSERVACIONES--
+  - El cociente entre nuestros tiempos y la cota subestimada es
+      estrictamente creciente.
+  - El cociente entre nuestros tiempos y la cota sobrestimada es
+      estrictamente decreciente.
+  - El cociente entre nuestros tiempos y la cota ajustada se
+      sitúa próximo a un valor estable de 0.043..
+
+Ordenacion por quicksort de vector ascendente umbral 100:
+      n            t(n)           t(n)/n^0.80        t(n)/n^1.08        t(n)/n^1.60
+(*)   500           8.515          0.059021            0.010359          0.000409
+(*)  1000          18.615          0.074108            0.010712          0.000295
+(*)  2000          39.240          0.089723            0.010681          0.000205
+(*)  4000          68.496          0.089953            0.009819          0.000118
+(*)  8000         154.898          0.116835            0.009434          0.000088
+(*) 16000         341.931          0.148130            0.009851          0.000064
+    32000         752.000          0.187110            0.010248          0.000047
+    64000        1639.000          0.234226            0.010566          0.000033
+   128000        3543.000          0.290806            0.010804          0.000024
+
+Cota subestimada=n^0.8
+Cota sobrestimada=n^1.60
+Cota ajustada=n^1.08
+
+--OBSERVACIONES--
+  - El cociente entre nuestros tiempos y la cota subestimada es
+      estrictamente creciente.
+  - El cociente entre nuestros tiempos y la cota sobrestimada es
+      estrictamente decreciente.
+  - El cociente entre nuestros tiempos y la cota ajustada se
+      sitúa próximo a un valor estable de 0.010.. a excepcion del
+      vector con 8000 elementos que nos da un valor anómalo 
+      ligeramente inferior.
+
+Ordenacion por quicksort de vector descendente umbral 100:
+      n            t(n)           t(n)/n^0.80        t(n)/n^1.09        t(n)/n^1.60
+(*)  2000          53.535          0.122409            0.013506          0.000280
+(*)  1000          27.238          0.108436            0.013628          0.000432
+(*)  2000          54.843          0.125400            0.013836          0.000287
+(*)  4000         114.970          0.150986            0.013625          0.000198
+(*)  8000         263.725          0.198920            0.013682          0.000150
+(*) 16000         536.780          0.232541            0.013038          0.000101
+    32000        1087.000          0.270464            0.013354          0.000067
+    64000        2529.000          0.361414            0.014595          0.000052
+    64000        2383.000          0.340549            0.013753          0.000049
+   128000        5201.000          0.426893            0.014100          0.000035
+
+Cota subestimada=n^0.8
+Cota sobrestimada=n^1.60
+Cota ajustada=n^1.09
+
+--OBSERVACIONES--
+  - El cociente entre nuestros tiempos y la cota subestimada es
+      estrictamente creciente.
+  - El cociente entre nuestros tiempos y la cota sobrestimada es
+      estrictamente decreciente.
+  - El cociente entre nuestros tiempos y la cota ajustada se
+      sitúa próximo a un valor estable de 0.013..
+
+Ordenacion por quicksort de vector aleatorio umbral 100:
+      n            t(n)           t(n)/n^0.80        t(n)/n^1.10        t(n)/n^1.60
+(*)   500          43.329          0.300333            0.046549          0.002082
+(*)  1000          94.630          0.376729            0.047427          0.001500
+(*)  2000         205.204          0.469204            0.047979          0.001073
+(*)  4000         433.047          0.568705            0.047236          0.000747
+     8000         941.000          0.709770            0.047884          0.000535
+    16000        2012.000          0.871630            0.047763          0.000378
+    32000        4322.000          1.075387            0.047865          0.000268
+    64000        9161.000          1.309178            0.047331          0.000187
+   128000       19285.000          1.582893            0.047482          0.000130
+
+Cota subestimada=n^0.8
+Cota sobrestimada=n^1.60
+Cota ajustada=n^1.10
+
+--OBSERVACIONES--
+  - El cociente entre nuestros tiempos y la cota subestimada es
+      estrictamente creciente.
+  - El cociente entre nuestros tiempos y la cota sobrestimada es
+      estrictamente decreciente.
+  - El cociente entre nuestros tiempos y la cota ajustada se
+      sitúa próximo a un valor estable de 0.047..
+
+
+---OBSERVACIONES GENERALES---
+  Podemos afirmar que el algoritmo de ordenación por inserción tiene una
+    complejidad computacional de n^1.98 en el caso de vectores aleatorios,
+    la cual es ligeramente inferior a la teórica (n^2), que justamente es 
+    la complejidad si el vector esta ordenado descendentemente, mientras 
+    que si ya está ordenado esta disminuye hasta n.
+
+  También podemos concluir que en el caso de la ordenación quicksort,cuando
+    le proporcionamos un vector ascendente su complejidad computacional
+    es n^1.08,cuando está ordenado descendentemente es n^1.09 y cuando es un
+    vector aleatorio aumenta hasta n^1.1.En los tres casos, los resultados
+    obtenidos son mejores que la complejidad teórica, la cual es n*log(n).
+
+---CONCLUSIONES---
+  Comparando los diferentes caso de cada algoritmo entre si podemos ver que el
+    mejor caso de inserción es cuando el vector ya está ordenado, y el peor es
+    cuando este está ordenado descendentemente, el aleatorio se situa en un punto
+    medio entre ambos casos. Para quicksort el mejor caso también será cuando este
+    está ordenado, seguido del vector decreciente y por último el aleatorio.
+
+  En términos de velocidad,la ordenación quicksort es mucho más rápida que la
+    ordenación por inserción tanto para vectores ordenados aleatoriamente como
+    para vectores ordenados descendentemente, esto es todo lo contrario para el
+    caso restante. Cuando el vector ya está ordenado inserción funciona mucho
+    más rápido, y es precisamente por eso que lo usaremos junto con quicksort
+    con los umbrales de 10 y 100.
+
+  En quicksort,con un vector ordenado ascendentemente,el umbral más rápido es
+    100, mientras que con el umbral 1 obtenemos los peores resultados, siendo
+    igual para el caso en el que el vector está ordenado descendentemente.
+    Por último, en el caso de los vectores aleatorios podemos observar que el
+    mejor umbral es el umbral 10, y tanto el umbral 100 como el 1 obtienen
+    resultados similares.
