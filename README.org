@@ -28,5 +28,6 @@ Consiste en implementar el algoritmo de búsqueda del árbol de recubrimiento m�
 El árbol a procesar será dado por una mariz de adyacencia y el resultado lo debuelve una cola circular en base a vectores.\\
 *posibles ejercicios de examen:*
 - en lugar de una cola otra cosa
+- kruskal en lugar de prim
 - devolver el peso total en lugar de las aristas
 - cambiar la representación del grafo (listas de adyacencia en lugar de matrices)
