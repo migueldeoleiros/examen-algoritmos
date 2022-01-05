@@ -1,7 +1,7 @@
 # Informe
-    Las cotas parecen ser iguales que con mediana de tres, por lo tanto el informe sería exactamente igual que el original. Lo más posible es que en el examen si pidieran esto no hará falta hacer todas las tablas y solo te pediran una o dos.
+Las cotas parecen ser iguales que con mediana de tres, por lo tanto el informe sería exactamente igual que el original. Lo más posible es que en el examen si pidieran esto no hará falta hacer todas las tablas y solo te pediran una o dos.
 # pseudocódigo
-    El algoritmo cambia un poco si lo comparas con el de mediana de 3, no es solo la funcion para selecionar el pivote, puede que se pueda hacer diferente, pero este es el pseudocódigo que encontré en los apuntes.
+El algoritmo cambia un poco si lo comparas con el de mediana de 3, no es solo la funcion para selecionar el pivote, puede que se pueda hacer diferente, pero este es el pseudocódigo que encontré en los apuntes.
 ```
 procedimiento ordenarAux (v[izq..der]){
     si izq+UMBRAL <= der entonces
