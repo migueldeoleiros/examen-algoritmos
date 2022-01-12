@@ -76,7 +76,7 @@ void fusion_rec(int v[],int izq,int der){
 }
 
 void orden_fusion(int v[],int n){
-    fusion_rec(v,0,n-1);
+    fusion_rec(v,0,n);
 }
 
 double tiemposAlgoritmo(int vector[], int n, void (*func)(int[], int),
